@@ -4,7 +4,8 @@
     "description": "SQL-themed escape room game for ISTE SQL Event",
     "main": "server/server.js",
     "scripts": {
-        "start": "node server/server.js"
+        "start": "node server/server.js",
+        "build": "echo 'Build complete'"
     },
     "keywords": [
         "sql",
