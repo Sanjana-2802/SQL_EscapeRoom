@@ -6,7 +6,7 @@ require('dotenv').config();
 const express = require('express');
 const path = require('path');
 const alasql = require('alasql');
-const questions = require('./questions');
+const questions = require('../lib/questions');
 const supabase = require('./supabase');
 
 const app = express();

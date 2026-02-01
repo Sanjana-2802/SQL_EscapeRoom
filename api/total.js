@@ -1,5 +1,5 @@
-const questions = require('../server/questions');
+const questions = require('../lib/questions');
 
-export default function handler(req, res) {
+module.exports = function handler(req, res) {
     res.json({ total: questions.length });
-}
+};

@@ -1,6 +1,6 @@
-const questions = require('../server/questions');
+const questions = require('../lib/questions');
 
-export default function handler(req, res) {
+module.exports = function handler(req, res) {
     const { id } = req.query;
     const questionId = parseInt(id, 10);
     const question = questions.find(q => q.id === questionId);
@@ -29,4 +29,4 @@ export default function handler(req, res) {
     }
 
     res.json(safeQuestion);
-}
+};
