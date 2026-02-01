@@ -1,0 +1,14 @@
+[2026-01-29T17:04:01.428Z] SyntaxError: Parse error on line 1:
+...dbox_1769706241356_0.45060044247977493
+-----------------------^
+Expecting 'EOF', 'END', 'ELSE', 'GO', 'SEMICOLON', got 'NUMBER'
+    at parser.parseError (C:\Users\samee\.gemini\antigravity\scratch\iste-sql-event\sql-escape-room\node_modules\alasql\dist\alasql.fs.js:2721:8)
+    at Parser.parse (C:\Users\samee\.gemini\antigravity\scratch\iste-sql-event\sql-escape-room\node_modules\alasql\dist\alasql.fs.js:2322:22)
+    at alasql.parse (C:\Users\samee\.gemini\antigravity\scratch\iste-sql-event\sql-escape-room\node_modules\alasql\dist\alasql.fs.js:5093:22)
+    at alasql.dexec (C:\Users\samee\.gemini\antigravity\scratch\iste-sql-event\sql-escape-room\node_modules\alasql\dist\alasql.fs.js:5357:16)
+    at alasql.exec (C:\Users\samee\.gemini\antigravity\scratch\iste-sql-event\sql-escape-room\node_modules\alasql\dist\alasql.fs.js:5311:17)
+    at alasql (C:\Users\samee\.gemini\antigravity\scratch\iste-sql-event\sql-escape-room\node_modules\alasql\dist\alasql.fs.js:137:17)
+    at C:\Users\samee\.gemini\antigravity\scratch\iste-sql-event\sql-escape-room\server\server.js:49:9
+    at Layer.handle [as handle_request] (C:\Users\samee\.gemini\antigravity\scratch\iste-sql-event\sql-escape-room\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\samee\.gemini\antigravity\scratch\iste-sql-event\sql-escape-room\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (C:\Users\samee\.gemini\antigravity\scratch\iste-sql-event\sql-escape-room\node_modules\express\lib\router\route.js:119:3)

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL ARENA - ISTE SQL Event</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="particle-background.js" defer></script>
+</head>
+
+<body>
+    <!-- Top Bar (Visible only during gameplay) -->
+    <header class="top-bar hidden" id="topBar">
+        <div class="top-bar-content">
+            <span class="top-bar-title">SQL ARENA</span>
+            <div class="top-bar-stats">
+                <span class="stat-item">Level: <span id="currentLevelText">1</span></span>
+                <span class="stat-item">Time: <span id="countdownTimer">15:00</span></span>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Screen 1: The Door Screen -->
+        <section id="doorScreen" class="screen active">
+            <div class="door-system">
+                <div class="door-frame">
+                    <div class="door-glow"></div>
+                    <div class="door-panel left" id="doorLeft"></div>
+                    <div class="door-panel right" id="doorRight"></div>
+                </div>
+                <p class="door-hint">THE VAULT REQUIRES PASSAGE</p>
+                <button class="door-interact-btn" id="doorInteractBtn">TOUCH TO OPEN</button>
+            </div>
+        </section>
+
+        <!-- Screen 2: Event Landing Screen -->
+        <section id="eventLandingScreen" class="screen hidden">
+            <div class="arena-landing-content">
+                <h1 class="glitch-title" data-text="SQL EVENT">SQL EVENT</h1>
+                <div class="landing-divider"></div>
+                <button class="arena-button pulse" id="enterArenaBtn">ENTER THE ARENA</button>
+                <p class="landing-warning">ONCE ENTERED, THE CLOCK NEVER STOPS</p>
+            </div>
+        </section>
+
+        <!-- Screen 2.5: User Registration Screen -->
+        <section id="registrationScreen" class="screen hidden">
+            <div class="registration-container">
+                <h2 class="reg-title">PLAYER REGISTRATION</h2>
+                <div class="reg-form">
+                    <div class="form-group">
+                        <label for="playerName">NAME</label>
+                        <input type="text" id="playerName" placeholder="Enter your full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="playerRollNo">ROLL NUMBER</label>
+                        <input type="text" id="playerRollNo" placeholder="Enter your roll number" required>
+                    </div>
+                    <button id="startGameBtn" class="arena-button pulse">START THE GAME</button>
+                </div>
+                <p class="reg-warning">Your information will be recorded for scoring</p>
+            </div>
+        </section>
+
+        <!-- Screen 3: Gameplay Screen -->
+        <main id="gameplayScreen" class="screen hidden">
+            <div class="gameplay-container">
+                <div class="question-header">
+                    <h2 class="level-title" id="questionTitle">Loading...</h2>
+                    <div class="question-badge" id="levelBadge">Level 1</div>
+                </div>
+
+                <!-- Mission Display (Gatekeeper Objective) -->
+                <div class="mission-reveal" id="missionReveal">
+                    <p class="question-text" id="questionText"></p>
+                </div>
+
+                <!-- SQL Sandbox Dataset Display -->
+                <div class="dataset-container" id="datasetContainer"></div>
+
+                <!-- SQL Sandbox Editor -->
+                <div class="answer-section" id="answerSection">
+                    <div class="code-editor-wrapper">
+                        <div class="code-editor-header">
+                            <span class="editor-label">SQL CONSOLE</span>
+                        </div>
+                        <textarea id="answerInput" class="sql-code-input" placeholder="ENTER YOUR SQL QUERY HERE"
+                            autocomplete="off" spellcheck="false" rows="6"></textarea>
+                    </div>
+                    <div class="button-group">
+                        <button id="unlockBtn" class="action-btn execute">⚡ REQUEST ACCESS / EXECUTE</button>
+
+                        <!-- New Access Code Verification Section -->
+                        <div id="accessCodeContainer" class="access-code-wrapper hidden">
+                            <input type="text" id="accessCodeInput" placeholder="ENTER ACCESS CODE"
+                                autocomplete="off">
+                            <button id="verifyCodeBtn" class="action-btn verify">VERIFY</button>
+                        </div>
+
+                        <button id="nextLevelBtn" class="action-btn next hidden">PROCEED TO NEXT LEVEL ➔</button>
+                    </div>
+                </div>
+
+                <!-- Feedback Message -->
+                <div class="feedback" id="feedback"></div>
+
+                <!-- Narrative Success Overlay -->
+                <div id="successOverlay" class="success-overlay hidden">
+                    <div class="overlay-content">
+                        <h2 class="overlay-title">ACCESS GRANTED</h2>
+                        <p class="overlay-subtitle">IDENTITY VERIFIED // CLEARANCE LEVEL: ALPHA</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Screen 4: Final Screen -->
+        <section id="finalScreen" class="screen hidden">
+            <div class="final-container">
+                <div class="victory-icon">🏆</div>
+                <h1 class="victory-title">ARENA COMPLETED</h1>
+                <div class="final-stats">
+                    <div class="stat-card">
+                        <span class="stat-label">TOTAL SCORE</span>
+                        <span id="finalScore" class="stat-value">300</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-label">TIME TAKEN</span>
+                        <span id="finalTime" class="stat-value">05:23</span>
+                    </div>
+                </div>
+                <p class="thank-you-msg">Thank you for participating in the ISTE SQL Event. You have proven yourself in
+                    the vault.</p>
+                <button class="arena-button" id="restartBtn">RESTART JOURNEY</button>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
