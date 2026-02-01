@@ -39,6 +39,7 @@ app.get('/api/question/:id', (req, res) => {
         id: question.id,
         level: question.level,
         title: question.title,
+        storySetup: question.storySetup,
         gatekeeperMessage: question.gatekeeperMessage,
         hint: question.hint,
         tables: {}

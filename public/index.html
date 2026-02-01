@@ -35,6 +35,44 @@
             </div>
         </section>
 
+        <!-- Screen 1.5: Story Intro Screen - "THE BREACH" -->
+        <section id="storyIntroScreen" class="screen hidden">
+            <div class="story-intro-container">
+                <div class="breach-content">
+                    <h1 class="breach-title">🚨 THE BREACH 🚨</h1>
+                    <div class="story-divider"></div>
+                    
+                    <div class="story-narrative">
+                        <p class="story-line"><strong>A loud siren echoes across the control center.</strong></p>
+                        <p class="story-line">The national <strong>Cyber Defense Vault</strong>—a secure database holding classified digital assets—has been breached.</p>
+                        
+                        <p class="story-line" style="margin-top: 2rem;">A mysterious hacker known only as <strong class="hacker-name">"Hacker_X"</strong> has infiltrated the system and locked down every exit.</p>
+                        
+                        <p class="story-line" style="margin-top: 2rem; font-size: 1.2rem; color: var(--accent);">
+                            Only one team can stop him:<br>
+                            <strong>YOU — The Database Detective Task Force (DDTF).</strong>
+                        </p>
+                    </div>
+
+                    <div class="mission-briefing">
+                        <h2>🎯 YOUR MISSION:</h2>
+                        <ul class="mission-list">
+                            <li><strong>Trace</strong> Hacker_X inside the database</li>
+                            <li><strong>Decode</strong> his trail through 5 stations</li>
+                            <li><strong>Unmask</strong> his true identity</li>
+                            <li><strong>Shut down</strong> the vault before he escapes</li>
+                        </ul>
+                    </div>
+
+                    <div class="warning-box">
+                        ⚠️ <strong>WARNING:</strong> Every table, every log, every number is a clue. Hacker_X has left traps, misleading trails, and encrypted data. Proceed with caution.
+                    </div>
+
+                    <button class="arena-button pulse" id="startDetectiveBtn">BEGIN INVESTIGATION</button>
+                </div>
+            </div>
+        </section>
+
         <!-- Screen 2: Event Landing Screen -->
         <section id="eventLandingScreen" class="screen hidden">
             <div class="arena-landing-content">
@@ -119,21 +157,39 @@
         <!-- Screen 4: Final Screen -->
         <section id="finalScreen" class="screen hidden">
             <div class="final-container">
-                <div class="victory-icon">🏆</div>
-                <h1 class="victory-title">ARENA COMPLETED</h1>
+                <div class="victory-icon">🔍</div>
+                <h1 class="victory-title">🚨 UNMASKED 🚨</h1>
+                
+                <div class="unmasked-narrative">
+                    <p class="narrative-line"><strong>You enter the final ID.</strong></p>
+                    <p class="narrative-line"><strong>The system screams:</strong></p>
+                    <p class="narrative-line highlight">
+                        <strong>ACCESS GRANTED —<br>HACKER_X LOCATION IDENTIFIED.</strong>
+                    </p>
+                    
+                    <p class="narrative-line">The lights flicker. The vault unlocks.</p>
+                    <p class="narrative-line">A hologram reveals the true hacker...</p>
+                </div>
+
+                <div class="case-summary">
+                    <strong>✅ INVESTIGATION COMPLETE</strong><br><br>
+                    You solved every clue. You cracked every table. You caught Hacker_X.
+                    <br><br>
+                    The Cyber Defense Vault is safe again — and you, the DDTF detectives, are now legends in the system.
+                </div>
+
                 <div class="final-stats">
                     <div class="stat-card">
-                        <span class="stat-label">TOTAL SCORE</span>
+                        <span class="stat-label">INVESTIGATION SCORE</span>
                         <span id="finalScore" class="stat-value">300</span>
                     </div>
                     <div class="stat-card">
-                        <span class="stat-label">TIME TAKEN</span>
+                        <span class="stat-label">TIME TO SOLVE</span>
                         <span id="finalTime" class="stat-value">05:23</span>
                     </div>
                 </div>
-                <p class="thank-you-msg">Thank you for participating in the ISTE SQL Event. You have proven yourself in
-                    the vault.</p>
-                <button class="arena-button" id="restartBtn">RESTART JOURNEY</button>
+
+                <button class="arena-button" id="restartBtn">🎯 INVESTIGATE ANOTHER CASE</button>
             </div>
         </section>
     </div>

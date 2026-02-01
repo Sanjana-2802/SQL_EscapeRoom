@@ -1,10 +1,11 @@
 const questions = [ 
     {
         id: 1,
-        level: "Level 1: The Entry Lock",
-        title: "Station: PERIMETER GATE",
-        gatekeeperMessage: "PUZZLE: Find the access code of the user with role = 'Gatekeeper'.",
-        hint: "Table: users(id, name, role, access_code). Use WHERE role='Gatekeeper'.",
+        level: "LEVEL 1: PERIMETER GATE",
+        title: "🔐 Unauthorized Entry",
+        storySetup: "The first breach happened at the Perimeter Gate, the vault's outermost firewall. A fake identity slipped through security. Only one user—named 'Gatekeeper'—holds the real access code to unlock the gate. To trace the intruder, you must identify the correct access code used during the break-in.",
+        gatekeeperMessage: "🔍 CLUE #1: Identify the Gatekeeper's access code from our security database. This code was used to bypass the perimeter. Find it, and we unlock the vault's first door.",
+        hint: "Use WHERE to filter by role='Gatekeeper' and select their access_code.",
         
         // SQL Output = 7342
         unlockCode: "7342",
@@ -25,10 +26,11 @@ const questions = [
 
     {
         id: 2,
-        level: "Level 2: The Firewall",
-        title: "Station: NETWORK LOGS",
-        gatekeeperMessage: "PUZZLE: Find who attempted a login at a suspicious timestamp like '2025-01-15%'.",
-        hint: "Table: logs(user, action, timestamp). Use LIKE '2025-01-15%'.",
+        level: "LEVEL 2: NETWORK LOGS",
+        title: "🔥 First Footprints",
+        storySetup: "Inside the firewall, you discover tampered logs. Hacker_X erased timestamps, but he made a mistake—one suspicious activity remains with a strange timestamp: 2025-01-15%. This must be the moment he executed his unauthorized login attempt. Find the user who logged in at this suspicious timestamp. This will reveal Hacker_X's first confirmed footprint. The chase now gets real.",
+        gatekeeperMessage: "🔍 CLUE #2: Find the mysterious user who performed a failed login attempt on 2025-01-15. Every timestamp tells a story. This one reveals the intruder.",
+        hint: "Use LIKE with pattern matching. Timestamps starting with '2025-01-15%' will show all activity on that date.",
         
         // SQL Output = Hacker_X
         unlockCode: "Hacker_X",
@@ -49,10 +51,11 @@ const questions = [
 
     {
         id: 3,
-        level: "Level 3: The Cipher Table",
-        title: "Station: HR ARCHIVES",
-        gatekeeperMessage: "PUZZLE: Find the floor number where the criminal ('Hacker_X') works.",
-        hint: "Tables: employees(id, name, dept_id), departments(dept_id, dept_name, floor). JOIN them.",
+        level: "LEVEL 3: HR ARCHIVES",
+        title: "🧩 Identity Match",
+        storySetup: "You've identified Hacker_X, but you need to pinpoint his physical location inside the Cyber Vault facility. Two connected tables in the HR Archives store the truth: employees and departments. Hacker_X once worked undercover inside the organization. His department's floor is the next clue to his escape route.",
+        gatekeeperMessage: "🔍 CLUE #3: Use table joins to uncover the floor number where Hacker_X secretly operated. This number unlocks the elevator to the upper levels where he's hiding.",
+        hint: "Use JOIN to connect employees with departments. Filter where name='Hacker_X' and select the floor number.",
         
         // SQL Output = 13
         unlockCode: "13",
@@ -80,10 +83,11 @@ const questions = [
 
     {
         id: 4,
-        level: "Level 4: The Data Breach",
-        title: "Station: TRANSACTION CORE",
-        gatekeeperMessage: "PUZZLE: Find which user spent the highest total amount.",
-        hint: "Table: transactions(id, user, amount). Use SUM(amount), GROUP BY, ORDER BY DESC, LIMIT 1.",
+        level: "LEVEL 4: TRANSACTION CORE",
+        title: "💸 Tracking the Money Trail",
+        storySetup: "Hacker_X didn't just infiltrate the system—he manipulated digital transactions to fund his escape. A hidden wallet shows unusual patterns. Large withdrawals... mismatched transfers... and one user whose spending is abnormally high. Only the highest spender holds the key to the next gate.",
+        gatekeeperMessage: "🔍 CLUE #4: Identify the user with the highest total spending. This will uncover Hacker_X's funding account. You are getting closer... but Hacker_X knows you're following.",
+        hint: "Use GROUP BY, SUM(amount), ORDER BY DESC, and LIMIT 1 to find the top spender.",
         
         // SQL Output = Hacker_X
         unlockCode: "Hacker_X",
@@ -106,10 +110,11 @@ const questions = [
 
     {
         id: 5,
-        level: "Level 5: Root Access",
-        title: "Station: KERNEL",
-        gatekeeperMessage: "PUZZLE: Find the ID of the only user whose access level is higher than the average level.",
-        hint: "Table: access(id, level). Use subquery: level > (SELECT AVG(level)...).",
+        level: "LEVEL 5: KERNEL CORE",
+        title: "🔓 The Final Confrontation",
+        storySetup: "The final chamber is the Kernel Security Core, the heart of the Cyber Defense Vault. Only users with an access level above the global average can reach this chamber. One ID stands out—an access level far above all others. This ID belongs to the real Hacker_X.",
+        gatekeeperMessage: "🔍 CLUE #5 (FINAL): Find the user whose access level is HIGHER than the system average. This anomaly proves they were given god-mode permissions to infiltrate our vault. This is our smoking gun!",
+        hint: "Use a SUBQUERY to calculate the average access level, then find which user exceeds it. This advanced SQL skill will crack the case wide open!",
         
         // SQL Output = 999
         unlockCode: "999",

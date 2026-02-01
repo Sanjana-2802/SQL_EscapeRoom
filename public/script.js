@@ -48,6 +48,7 @@ const elements = {
 function cacheElements() {
     elements.screens = {
         doorScreen: document.getElementById('doorScreen'),
+        storyIntroScreen: document.getElementById('storyIntroScreen'),
         eventLandingScreen: document.getElementById('eventLandingScreen'),
         registrationScreen: document.getElementById('registrationScreen'),
         gameplayScreen: document.getElementById('gameplayScreen'),
@@ -79,6 +80,12 @@ function setupEventListeners() {
 
     // Landing Screen
     document.getElementById('enterArenaBtn').addEventListener('click', startArena);
+
+    // Story Intro Screen
+    const startDetectiveBtn = document.getElementById('startDetectiveBtn');
+    if (startDetectiveBtn) {
+        startDetectiveBtn.addEventListener('click', startArena);
+    }
 
     // Registration Screen
     document.getElementById('startGameBtn').addEventListener('click', handleRegistration);
@@ -132,7 +139,7 @@ function handleDoorOpen() {
     const doorSystem = document.querySelector('.door-system');
     doorSystem.classList.add('door-opening');
 
-    setTimeout(() => showScreen('eventLandingScreen'), 1000);
+    setTimeout(() => showScreen('storyIntroScreen'), 1000);
 }
 
 function startArena() {
@@ -247,7 +254,32 @@ function renderLevelState(q) {
     elements.levelTitle.textContent = q.title;
     elements.levelBadge.textContent = q.level;
 
-    // Mission Reveal
+    // Get the gameplay container for inserting story
+    const gameplayContainer = document.querySelector('.gameplay-container');
+    
+    // Check if story element already exists and remove it
+    const existingStory = gameplayContainer.querySelector('.story-setup');
+    if (existingStory) {
+        existingStory.remove();
+    }
+    
+    // Story Setup - Display narrative context at the top
+    if (q.storySetup) {
+        const storyContainer = document.createElement('div');
+        storyContainer.className = 'story-setup';
+        storyContainer.innerHTML = `
+            <p class="story-text">${q.storySetup}</p>
+            <div class="mission-divider"></div>
+        `;
+        
+        // Insert story at the beginning of gameplay container, after the header
+        const questionHeader = gameplayContainer.querySelector('.question-header');
+        if (questionHeader) {
+            questionHeader.parentElement.insertBefore(storyContainer, questionHeader.nextElementSibling);
+        }
+    }
+
+    // Mission Reveal (The actual clue/puzzle)
     elements.questionText.textContent = q.gatekeeperMessage;
 
     // Render Schema
@@ -263,7 +295,7 @@ function renderLevelState(q) {
     elements.answerInput.disabled = false;
 
     elements.unlockBtn.disabled = false;
-    elements.unlockBtn.textContent = "⚡ REQUEST ACCESS / EXECUTE";
+    elements.unlockBtn.textContent = "⚡ EXECUTE QUERY";
     elements.unlockBtn.classList.remove('hidden', 'validating');
 
     elements.accessCodeContainer.classList.add('hidden');

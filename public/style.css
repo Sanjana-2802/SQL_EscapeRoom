@@ -546,8 +546,20 @@ body {
 .victory-title {
     font-family: 'Orbitron', sans-serif;
     font-size: 3rem;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
     color: var(--success);
+}
+
+.case-summary {
+    max-width: 700px;
+    margin: 0 auto 2rem;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.8);
+    padding: 2rem;
+    background: rgba(0, 255, 136, 0.05);
+    border-left: 4px solid var(--success);
+    border-radius: 8px;
 }
 
 .final-stats {
@@ -583,6 +595,202 @@ body {
     margin: 0 auto 3rem;
     line-height: 1.6;
     color: rgba(255, 255, 255, 0.7);
+}
+
+/* ==================== STORY INTRO SCREEN ==================== */
+.story-intro-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+}
+
+.breach-content {
+    animation: breachFadeIn 1s ease;
+}
+
+@keyframes breachFadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.breach-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3.5rem;
+    text-align: center;
+    color: var(--error);
+    margin-bottom: 2rem;
+    text-shadow: 0 0 20px var(--error);
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+.story-divider {
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    margin: 2rem 0;
+}
+
+.story-narrative {
+    margin: 3rem 0;
+    padding: 2rem;
+    background: rgba(255, 47, 151, 0.05);
+    border-left: 4px solid var(--accent);
+    border-radius: 8px;
+}
+
+.story-line {
+    font-size: 1.1rem;
+    line-height: 2;
+    color: #e0e0ff;
+    margin-bottom: 1rem;
+    animation: typewriter 0.5s ease forwards;
+}
+
+.story-line:nth-child(1) { animation-delay: 0.1s; }
+.story-line:nth-child(2) { animation-delay: 0.3s; }
+.story-line:nth-child(3) { animation-delay: 0.5s; }
+.story-line:nth-child(4) { animation-delay: 0.7s; }
+.story-line:nth-child(5) { animation-delay: 0.9s; }
+
+@keyframes typewriter {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hacker-name {
+    color: var(--error);
+    text-shadow: 0 0 10px var(--error);
+}
+
+.mission-briefing {
+    margin: 3rem 0;
+    padding: 2.5rem;
+    background: linear-gradient(135deg, rgba(123, 47, 247, 0.2), rgba(0, 217, 255, 0.1));
+    border: 2px solid var(--secondary);
+    border-radius: 12px;
+}
+
+.mission-briefing h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--primary);
+}
+
+.mission-list {
+    list-style: none;
+    padding: 0;
+}
+
+.mission-list li {
+    font-size: 1.1rem;
+    padding: 0.8rem 0;
+    color: rgba(255, 255, 255, 0.85);
+    border-bottom: 1px solid rgba(0, 217, 255, 0.2);
+    padding-left: 2rem;
+    position: relative;
+}
+
+.mission-list li:before {
+    content: "▶";
+    position: absolute;
+    left: 0;
+    color: var(--primary);
+}
+
+.mission-list li:last-child {
+    border-bottom: none;
+}
+
+.warning-box {
+    margin: 2.5rem 0;
+    padding: 1.5rem;
+    background: rgba(255, 51, 102, 0.1);
+    border: 2px solid var(--error);
+    border-radius: 8px;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.6;
+}
+
+/* ==================== UNMASKED ENDING SCREEN ==================== */
+.unmasked-narrative {
+    margin: 2.5rem 0;
+    padding: 2rem;
+    background: linear-gradient(135deg, rgba(255, 51, 102, 0.15), rgba(123, 47, 247, 0.15));
+    border: 2px solid var(--error);
+    border-radius: 12px;
+    animation: unmaskedGlow 2s ease-in-out infinite;
+}
+
+@keyframes unmaskedGlow {
+    0%, 100% {
+        box-shadow: 0 0 20px rgba(255, 51, 102, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 40px rgba(255, 51, 102, 0.6);
+    }
+}
+
+.narrative-line {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #f0f0ff;
+    margin: 1rem 0;
+}
+
+.narrative-line.highlight {
+    font-size: 1.4rem;
+    color: var(--error);
+    text-shadow: 0 0 15px var(--error);
+    margin: 2rem 0;
+    text-align: center;
+}
+
+/* ==================== STORY SETUP STYLES ==================== */
+.story-setup {
+    margin-bottom: 2.5rem;
+    padding: 2rem;
+    background: linear-gradient(135deg, rgba(123, 47, 247, 0.15), rgba(0, 217, 255, 0.1));
+    border: 2px solid var(--secondary);
+    border-radius: 8px;
+    animation: storyFadeIn 0.8s ease;
+    box-shadow: 0 0 30px rgba(123, 47, 247, 0.2);
+}
+
+.story-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #b8b8ff;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+}
+
+.mission-divider {
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--secondary), transparent);
+    margin-top: 1.5rem;
+}
+
+@keyframes storyFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Mission Reveal */
