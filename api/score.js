@@ -1,6 +1,6 @@
 const supabase = require('../server/supabase');
 
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
     if (req.method !== 'POST') {
         return res.status(405).json({ error: 'Method not allowed' });
     }
@@ -38,4 +38,4 @@ export default async function handler(req, res) {
         console.log(`📊 Score (Error): ${name} (${rollNo}) - Score: ${score}, Time: ${time}`);
         res.json({ success: true, message: 'Score logged' });
     }
-}
+};
